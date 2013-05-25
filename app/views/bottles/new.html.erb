@@ -4,21 +4,70 @@
 
   <div>
     <%= label_tag :name %><br />
-    <%= text_field_tag :name %>
+    <%= text_field_tag :name, "", size: 40, placeholder: "Enter brand name here..."%>
   </div>
 
-    <div>
+  <div>
     <%= label_tag :year %><br />
     <%= number_field_tag :year %>
   </div>
 
-    <div>
+  <div>
     <%= label_tag :color %><br />
-    <%= text_field_tag :color %>
+    <%= text_field_tag :color, "", size: 40, placeholder: "Red, white, rose?"%>
   </div>
 
+  <div>
+    <%= label_tag :varietal %><br />
+    <%= text_field_tag :varietal, "", size: 40, placeholder: "Pinot noir, Merlot, etc."%>
+  </div>
+
+<div>
+    <%= label_tag :appellation %><br />
+    <%= text_field_tag :appellation, "", size: 40, placeholder: "Where's it from?"%>
+  </div>
   
   <div>
-    <%= submit_tag "Create Bottle", class: 'btn' %>
+    <%= label_tag :style %><br />
+    <%= text_field_tag :style, "", size: 40, placeholder: "What's it like?"%>
+  </div>
+
+  <div>
+    <%= label_tag :flavors %><br />
+    <%= text_field_tag :flavors, "", size: 40, placeholder: "Cherry, fig, pepper?"%>
+  </div>
+
+  <div>
+    <%= label_tag :Alcohol %><br />
+    <%= text_field_tag :Alcohol, "", size: 40, placeholder: "How much alcohol? i.e. 12.4"%>
+  </div>
+
+  <div>
+    <%= label_tag :production %><br />
+    <%= text_field_tag :production, "", size: 40, placeholder: "How many cases did they make?"%>
+  </div>
+
+  <div>
+    <%= label_tag :price %><br />
+    <%= text_field_tag :price, "", size: 40, placeholder: "Suggested retail price, i.e. 25.00"%>
+  </div>
+
+  <div>
+    <%= label_tag :picture_id %><br />
+    <%= text_field_tag :picture_id, "", size: 40, placeholder: "Where to find a picture"%>
+  </div>
+
+  <div>
+    <%= label_tag :occasion %><br />
+    <%= text_field_tag :occasion, "", size: 40, placeholder: "This wine is perfect for..."%>
+  </div>
+
+  <div>
+    <%= label_tag :description %><br />
+    <%= text_field_tag :description, "", size: 100, placeholder: "What do you think of this wine?"%>
+  </div>
+
+  <div>
+    <%= submit_tag "Add this bottle", class: 'btn' %>
   </div>
 <% end %>

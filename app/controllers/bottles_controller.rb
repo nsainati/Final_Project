@@ -17,7 +17,18 @@ class BottlesController < ApplicationController
     @bottle.name = params[:name]
     @bottle.year = params[:year]
     @bottle.color = params[:color]
-    
+    @bottle.color = params[:varietal]
+    @bottle.color = params[:appelation]
+    @bottle.color = params[:style]
+    @bottle.color = params[:flavors]
+    @bottle.color = params[:alcohol]
+    @bottle.color = params[:production]
+    @bottle.color = params[:price]
+    @bottle.color = params[:picture_id]
+    @bottle.color = params[:occasion]
+    @bottle.color = params[:description]
+    @bottle.save
+
     if @bottle.save
       redirect_to bottles_url
     else
@@ -34,6 +45,17 @@ class BottlesController < ApplicationController
     @bottle.name = params[:name]
     @bottle.year = params[:year]
     @bottle.color = params[:color]
+    @bottle.color = params[:varietal]
+    @bottle.color = params[:appelation]
+    @bottle.color = params[:style]
+    @bottle.color = params[:flavors]
+    @bottle.color = params[:alcohol]
+    @bottle.color = params[:production]
+    @bottle.color = params[:price]
+    @bottle.color = params[:picture_id]
+    @bottle.color = params[:occasion]
+    @bottle.color = params[:description]
+    @bottle.save
     
     if @bottle.save
       redirect_to bottles_url

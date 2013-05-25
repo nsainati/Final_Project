@@ -1,4 +1,7 @@
+
 <h1>Bottle #<%= @bottle.id %></h1>
+
+<p><%= link_to 'Edit this bottle', edit_bottle_url(@bottle), class: 'btn' %></p>
 
 <p>
   <b>Name:</b>
@@ -15,4 +18,52 @@
   <%= @bottle.color %>
 </p>
 
+<p>
+  <b>Varietal:</b>
+  <%= @bottle.varietal %>
+</p>
 
+<p>
+  <b>Appellation:</b>
+  <%= @bottle.appellation %>
+</p>
+
+<p>
+  <b>Style:</b>
+  <%= @bottle.style %>
+</p>
+
+<p>
+  <b>Flavors:</b>
+  <%= @bottle.flavors %>
+</p>
+
+<p>
+  <b>Alcohol:</b>
+  <%= @bottle.alcohol %>
+</p>
+
+<p>
+  <b>Production:</b>
+  <%= @bottle.production %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @bottle.price %>
+</p>
+
+<p>
+  <b>Picture_id:</b>
+  <%= @bottle.picture_id %>
+</p>
+
+<p>
+  <b>Occasion:</b>
+  <%= @bottle.occasion %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @bottle.description %>
+</p>
