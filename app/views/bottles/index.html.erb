@@ -1,0 +1,32 @@
+<h1>Bottles</h1>
+
+<p><%= link_to 'Add a New Bottle', new_bottle_url, class: 'btn' %></p>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Year</th>
+      <th>Color</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @bottles.each do |bottle| %>
+    <tr>
+        <td><%= bottle.name %></td>
+        <td><%= bottle.year %></td>
+        <td><%= bottle.color %></td>
+  
+      <td><%= link_to 'Show', bottle_url(bottle), class: 'btn' %></td>
+      <td><%= link_to 'Edit', edit_bottle_url(bottle), class: 'btn' %></td>
+      <td><%= link_to 'Destroy', bottle_url(bottle), method: 'delete', data: { confirm: "Do you really want to delete this bottle?" }, class: 'btn btn-danger' %></td>
+
+    </tr>
+  <% end %>
+  </body>
+</table>
+

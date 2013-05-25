@@ -1,0 +1,23 @@
+<h1>Listing bootstraps</h1>
+
+<table>
+  <tr>
+    <th>Cosmo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bootstraps.each do |bootstrap| %>
+  <tr>
+    <td><%= bootstrap.cosmo %></td>
+    <td><%= link_to 'Show', bootstrap %></td>
+    <td><%= link_to 'Edit', edit_bootstrap_path(bootstrap) %></td>
+    <td><%= link_to 'Destroy', bootstrap, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Bootstrap', new_bootstrap_path %>

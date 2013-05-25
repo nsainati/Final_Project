@@ -1,0 +1,25 @@
+<h1>Editing Bottle #<%= @bottle.id %></h1>
+
+<%= form_tag(bottle_url(@bottle), method: 'put') do %>
+
+  <div>
+    <%= label_tag :name %><br />
+    <%= text_field_tag :name, @bottle.name %>
+  </div>
+
+  <div>
+    <%= label_tag :year %><br />
+    <%= number_field_tag :year, @bottle.year %>
+  </div>
+
+  <div>
+    <%= label_tag :color %><br />
+    <%= text_field_tag :color, @bottle.color %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Bottle", class: 'btn' %>
+  </div>
+
+<% end %>

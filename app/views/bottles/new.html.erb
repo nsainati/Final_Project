@@ -1,0 +1,24 @@
+<h1>New Bottle</h1>
+
+<%= form_tag(bottles_url, method: 'post') do %>
+
+  <div>
+    <%= label_tag :name %><br />
+    <%= text_field_tag :name %>
+  </div>
+
+    <div>
+    <%= label_tag :year %><br />
+    <%= number_field_tag :year %>
+  </div>
+
+    <div>
+    <%= label_tag :color %><br />
+    <%= text_field_tag :color %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Create Bottle", class: 'btn' %>
+  </div>
+<% end %>
