@@ -1,10 +1,19 @@
 body {
+  background-image: url(vines1.jpg);
+  background-size: 1440px 800px;
   background-color: #fff;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
-  line-height: 18px;
+  line-height: 18px; margin: 0;
+        
+    }
+
+table {
+background-color: white;
+
 }
+
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
