@@ -16,7 +16,12 @@ class UsersController < ApplicationController
     @user = User.new
     @user.name = params[:name]
     @user.password = params[:password]
-    
+    @user.email = params[:email]
+    if @user.email = 'nsainati2013@kellogg.northwestern.edu'  || @user.email = 'agarfinkel2013@kellogg.northwestern.edu'
+      @user.user_type = 'admin'
+    else
+      @user.user_type = 'member'
+    end
     if @user.save
       redirect_to users_url
     else
@@ -32,6 +37,12 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:id])
     @user.name = params[:name]
     @user.password = params[:password]
+    @user.email = params[:email]
+    if @user.email = 'nsainati2013@kellogg.northwestern.edu'  || 'agarfinkel2013@kellogg.northwestern.edu'
+      @user.user_type = 'admin'
+    else
+      @user.user_type = 'member'
+    end
     
     
     if @user.save
