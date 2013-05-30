@@ -1,0 +1,26 @@
+<h1>New Occasion</h1>
+
+
+<%= form_tag(occasions_url, method: 'post') do %>
+
+
+  <div>
+    <%= label_tag :foreign_id %><br />
+    <%= number_field_tag :foreign_id %>
+  </div>
+
+  <div>
+    <%= label_tag :occasion %><br />
+    <%= text_field_tag :occasion %>
+  </div>
+
+  <div>
+    <%= label_tag :qualities %><br />
+    <%= text_field_tag :qualities %>
+  </div>
+
+
+  <div>
+    <%= submit_tag "Create Occasion" %>
+  </div>
+<% end %>

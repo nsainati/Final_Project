@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130525193843) do
+ActiveRecord::Schema.define(:version => 20130530204700) do
 
   create_table "bootstraps", :force => true do |t|
     t.string   "cosmo"
@@ -33,6 +33,20 @@ ActiveRecord::Schema.define(:version => 20130525193843) do
     t.integer "picture_id"
     t.string  "occasion"
     t.text    "description"
+  end
+
+  create_table "occasions", :force => true do |t|
+    t.integer "foreign_id"
+    t.string  "occasion"
+    t.string  "qualities"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
 end

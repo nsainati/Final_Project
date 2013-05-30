@@ -17,16 +17,16 @@ class BottlesController < ApplicationController
     @bottle.name = params[:name]
     @bottle.year = params[:year]
     @bottle.color = params[:color]
-    @bottle.color = params[:varietal]
-    @bottle.color = params[:appelation]
-    @bottle.color = params[:style]
-    @bottle.color = params[:flavors]
-    @bottle.color = params[:alcohol]
-    @bottle.color = params[:production]
-    @bottle.color = params[:price]
-    @bottle.color = params[:picture_id]
-    @bottle.color = params[:occasion]
-    @bottle.color = params[:description]
+    @bottle.varietal = params[:varietal]
+    @bottle.appellation = params[:appellation]
+    @bottle.style = params[:style]
+    @bottle.flavors = params[:flavors]
+    @bottle.alcohol = params[:alcohol]
+    @bottle.production = params[:production]
+    @bottle.price = params[:price]
+    @bottle.picture_id = params[:picture_id]
+    @bottle.occasion = params[:occasion]
+    @bottle.description = params[:description]
     @bottle.save
 
     if @bottle.save
@@ -45,16 +45,16 @@ class BottlesController < ApplicationController
     @bottle.name = params[:name]
     @bottle.year = params[:year]
     @bottle.color = params[:color]
-    @bottle.color = params[:varietal]
-    @bottle.color = params[:appelation]
-    @bottle.color = params[:style]
-    @bottle.color = params[:flavors]
-    @bottle.color = params[:alcohol]
-    @bottle.color = params[:production]
-    @bottle.color = params[:price]
-    @bottle.color = params[:picture_id]
-    @bottle.color = params[:occasion]
-    @bottle.color = params[:description]
+    @bottle.varietal = params[:varietal]
+    @bottle.appellation = params[:appellation]
+    @bottle.style = params[:style]
+    @bottle.flavors = params[:flavors]
+    @bottle.alcohol = params[:alcohol]
+    @bottle.production = params[:production]
+    @bottle.price = params[:price]
+    @bottle.picture_id = params[:picture_id]
+    @bottle.occasion = params[:occasion]
+    @bottle.description = params[:description]
     @bottle.save
     
     if @bottle.save
@@ -70,3 +70,10 @@ class BottlesController < ApplicationController
     redirect_to bottles_url
   end
 end
+
+# add bottle in form
+# then create another button that says 'add occasion'
+# box tag, coming off of occasions controller -> would need to get through the params hash
+# link to 'or a new occasion' -> link to new occasion page
+
+#search with a search controller w/ 'create search'.  Post search that looks through all of the tables. view that says "here's all the bottles that match, here's all the tables that match". If you don't add the headings, it will look like google.

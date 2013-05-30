@@ -1,0 +1,26 @@
+<h1>Editing Occasion #<%= @occasion.id %></h1>
+
+
+<%= form_tag(occasion_url(@occasion), method: 'put') do %>
+
+  <div>
+    <%= label_tag :foreign_id %><br />
+    <%= number_field_tag :foreign_id, @occasion.foreign_id %>
+  </div>
+
+  <div>
+    <%= label_tag :occasion %><br />
+    <%= text_field_tag :occasion, @occasion.occasion %>
+  </div>
+
+  <div>
+    <%= label_tag :qualities %><br />
+    <%= text_field_tag :qualities, @occasion.qualities %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Occasion" %>
+  </div>
+
+<% end %>
