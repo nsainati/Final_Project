@@ -16,7 +16,7 @@ class BottlesController < ApplicationController
     else
       redirect_to bottles_url, notice: "Sorry, you do not have permission."
     end
-  end
+  end 
 
   def create
         @bottle = Bottle.new
