@@ -1,0 +1,16 @@
+<h1>Editing Event #<%= @event.id %></h1>
+
+
+<%= form_tag(event_url(@event), method: 'put') do %>
+
+  <div>
+    <%= label_tag :event %><br />
+    <%= text_field_tag :event, @event.event %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Event" %>
+  </div>
+
+<% end %>

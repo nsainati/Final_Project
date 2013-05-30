@@ -9,31 +9,37 @@ class BottlesController < ApplicationController
   end
 
   def new
-    @bottle = Bottle.new
+    user = User.find_by_id(session["user_id"])
+
+    if session["user_id"].present? && user.user_type == "admin" 
+      @bottle = Bottle.new
+    else
+      redirect_to bottles_url, notice: "Sorry, you do not have permission."
+    end
   end
 
   def create
-    @bottle = Bottle.new
-    @bottle.name = params[:name]
-    @bottle.year = params[:year]
-    @bottle.color = params[:color]
-    @bottle.varietal = params[:varietal]
-    @bottle.appellation = params[:appellation]
-    @bottle.style = params[:style]
-    @bottle.flavors = params[:flavors]
-    @bottle.alcohol = params[:alcohol]
-    @bottle.production = params[:production]
-    @bottle.price = params[:price]
-    @bottle.picture_id = params[:picture_id]
-    @bottle.occasion = params[:occasion]
-    @bottle.description = params[:description]
-    @bottle.save
+        @bottle = Bottle.new
+        @bottle.name = params[:name]
+        @bottle.year = params[:year]
+        @bottle.color = params[:color]
+        @bottle.varietal = params[:varietal]
+        @bottle.appellation = params[:appellation]
+        @bottle.style = params[:style]
+        @bottle.flavors = params[:flavors]
+        @bottle.alcohol = params[:alcohol]
+        @bottle.production = params[:production]
+        @bottle.price = params[:price]
+        @bottle.picture_id = params[:picture_id]
+        @bottle.occasion = params[:occasion]
+        @bottle.description = params[:description]
+        @bottle.save
 
-    if @bottle.save
-      redirect_to bottles_url
-    else
-      render 'new'
-    end
+        if @bottle.save
+          redirect_to bottles_url
+        else
+          render 'new'
+        end
   end
 
   def edit

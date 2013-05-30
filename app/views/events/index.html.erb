@@ -1,0 +1,28 @@
+<h1>Events</h1>
+
+<p><%= link_to 'Add a New Event', new_event_url %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @events.each do |event| %>
+    <tr>
+      <td><%= event.event %></td>
+  
+      <td><%= link_to 'Show', event_url(event) %></td>
+      <td><%= link_to 'Edit', edit_event_url(event) %></td>
+      <td><%= link_to 'Destroy', event_url(event), method: 'delete', data: { confirm: "Do you really want to delete this event?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

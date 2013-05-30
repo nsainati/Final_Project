@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130530204700) do
+ActiveRecord::Schema.define(:version => 20130530231025) do
 
   create_table "bootstraps", :force => true do |t|
     t.string   "cosmo"
@@ -35,10 +35,8 @@ ActiveRecord::Schema.define(:version => 20130530204700) do
     t.text    "description"
   end
 
-  create_table "occasions", :force => true do |t|
-    t.integer "foreign_id"
-    t.string  "occasion"
-    t.string  "qualities"
+  create_table "events", :force => true do |t|
+    t.string "event"
   end
 
   create_table "users", :force => true do |t|

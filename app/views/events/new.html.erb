@@ -1,0 +1,16 @@
+<h1>New Event</h1>
+
+
+<%= form_tag(events_url, method: 'post') do %>
+
+
+  <div>
+    <%= label_tag :event %><br />
+    <%= text_field_tag :event %>
+  </div>
+
+
+  <div>
+    <%= submit_tag "Create Event" %>
+  </div>
+<% end %>
