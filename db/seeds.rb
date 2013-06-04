@@ -12,7 +12,23 @@ Bottle.destroy_all
 data = [{name: "Awesome Wine", year: 1982, color: "Red", 
 		varietal: "Merlot", appellation: "Napa Valley", style: "Meritage", 
 		flavors: "Currant, cherry, fig", alcohol: 14.2, production: 15000,
-		price: 15.00, picture_id: 1, occasion: "Great for BBQ", description: "This is one of our favorite wines."}]
+		price: 15.00, picture_id: 1, occasion: "BBQ", description: "This is one of our favorite wines."},
+        {name: "Cool Wine", year: 1998, color: "Red", 
+    varietal: "Merlot", appellation: "Sonoma Valley", style: "Meritage", 
+    flavors: "Berries, earthy", alcohol: 14.5, production: 15000,
+    price: 18.00, picture_id: 1, occasion: "Wedding", description: "A very good wine, indeed."}, 
+        {name: "Neat Wine", year: 2009, color: "White", 
+    varietal: "Sauvignon blanc", appellation: "California", style: "Crisp", 
+    flavors: "Melon, citrus", alcohol: 12.2, production: 25000,
+    price: 17.00, picture_id: 1, occasion: "Beach", description: "Good for summer"},
+        {name: "Great Wine", year: 2009, color: "White", 
+    varietal: "Chardonnay", appellation: "Napa", style: "Sweet", 
+    flavors: "Peach", alcohol: 12.2, production: 25000,
+    price: 12.00, picture_id: 1, occasion: "Beach", description: "Good for the beach"},
+        {name: "Best Wine", year: 2009, color: "Red", 
+    varietal: "Cabernet Sauvignon", appellation: "Napa", style: "Big", 
+    flavors: "Red fruit, berries, smoke", alcohol: 15.2, production: 25000,
+    price: 30.00, picture_id: 1, occasion: "BBQ, Steak", description: "Steak night wine"}]
 
 data.each do |wine_info|
   m = Bottle.new

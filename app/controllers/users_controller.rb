@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @user.name = params[:name]
     @user.password = params[:password]
     @user.email = params[:email]
-    if @user.email = 'nsainati2013@kellogg.northwestern.edu'  || @user.email = 'agarfinkel2013@kellogg.northwestern.edu'
+    if @user.email == 'nsainati2013@kellogg.northwestern.edu'  || @user.email == 'agarfinkel2013@kellogg.northwestern.edu'
       @user.user_type = 'admin'
     else
       @user.user_type = 'member'
