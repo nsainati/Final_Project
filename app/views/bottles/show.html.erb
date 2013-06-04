@@ -1,7 +1,12 @@
 
 <h1>Bottle #<%= @bottle.id %></h1>
 
-<p><%= link_to 'Edit this bottle', edit_bottle_url(@bottle), class: 'btn' %></p>
+<table>
+     <tr>
+      <td><%= link_to 'Edit this bottle', edit_bottle_url(@bottle), class: 'btn' %></td>
+      <td><%= link_to 'Add occasions', new_occasion_url(@bottles_event), class: 'btn' %></td>
+    </tr>
+</table>
 
 <p>
   <b>Name:</b>

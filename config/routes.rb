@@ -1,21 +1,6 @@
 Wineapp::Application.routes.draw do
 
-  # Routes for the Event resource:
-  # CREATE
-  get '/events/new', controller: 'events', action: 'new', as: 'new_event'
-  post '/events', controller: 'events', action: 'create'
-
-  # READ
-  get '/events', controller: 'events', action: 'index', as: 'events'
-  get '/events/:id', controller: 'events', action: 'show', as: 'event'
-
-  # UPDATE
-  get '/events/:id/edit', controller: 'events', action: 'edit', as: 'edit_event'
-  put '/events/:id', controller: 'events', action: 'update'
-
-  # DELETE
-  delete '/events/:id', controller: 'events', action: 'destroy'
-  #------------------------------
+root :to => 'bottles#index'
 
 #Session routes
   get '/login', controller: 'sessions', action: 'new'
@@ -41,7 +26,6 @@ Wineapp::Application.routes.draw do
   #------------------------------
 
     # Routes for the Bottle resource:
-root :to => 'bottles#index'
   # CREATE
   get '/bottles/new', controller: 'bottles', action: 'new', as: 'new_bottle'
   post '/bottles', controller: 'bottles', action: 'create'
@@ -57,6 +41,42 @@ root :to => 'bottles#index'
   # DELETE
   delete '/bottles/:id', controller: 'bottles', action: 'destroy'
   #------------------------------
+
+  # Routes for the Event resource:
+  # CREATE
+  get '/events/new', controller: 'events', action: 'new', as: 'new_event'
+  post '/events', controller: 'events', action: 'create'
+
+  # READ
+  get '/events', controller: 'events', action: 'index', as: 'events'
+  get '/events/:id', controller: 'events', action: 'show', as: 'event'
+
+  # UPDATE
+  get '/events/:id/edit', controller: 'events', action: 'edit', as: 'edit_event'
+  put '/events/:id', controller: 'events', action: 'update'
+
+  # DELETE
+  delete '/events/:id', controller: 'events', action: 'destroy'
+  #------------------------------
+
+  # Routes for the Occasion resource:
+  # CREATE
+  get '/occasions/new', controller: 'occasions', action: 'new', as: 'new_occasion'
+  post '/occasions', controller: 'occasions', action: 'create'
+
+  # READ
+  get '/occasions', controller: 'occasions', action: 'index', as: 'occasions'
+  get '/occasions/:id', controller: 'occasions', action: 'show', as: 'occasion'
+
+  # UPDATE
+  get '/occasions/:id/edit', controller: 'occasions', action: 'edit', as: 'edit_occasion'
+  put '/occasions/:id', controller: 'occasions', action: 'update'
+
+  # DELETE
+  delete '/occasions/:id', controller: 'occasions', action: 'destroy'
+  #------------------------------
+
+
 
   resources :bootstraps
 

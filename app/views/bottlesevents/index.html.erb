@@ -1,0 +1,30 @@
+<h1>Bottles and Occasions</h1>
+
+<p><%= link_to 'Add a New Bottle Occasion', new_be_url %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bottle</th>
+      <th>Occasion</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @bottles_event.each do |occasion| %>
+    <tr>
+      <td><%= occasion.bottle.name %></td>
+      <td><%= occasion.event.event %></td>
+
+      <td><%= link_to 'Show', be_url(occasion) %></td>
+      <td><%= link_to 'Edit', edit_be_url(occasion) %></td>
+      <td><%= link_to 'Destroy', be_url(occasion), method: 'delete', data: { confirm: "Do you really want to delete this combination?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

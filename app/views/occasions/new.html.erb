@@ -1,0 +1,24 @@
+<h1>New Occasion</h1>
+
+
+<%= form_tag(occasions_url, method: 'post') do %>
+
+<% @occasion.errors.messages.each do |msg|%>
+    <li><%= msg %></li>
+<% end %>
+
+<div>
+    <%= label_tag :bottle_id %><br />
+    <%= select_tag :bottle_id,
+                    options_from_collection_for_select(Bottle.order('name asc'), :id, :name) %>
+  </div>
+   <div>
+    <%= label_tag :event_id %><br />
+    <%= select_tag :event_id,
+                    options_from_collection_for_select(Event.order('event asc'), :id, :event) %>
+  </div>
+
+  <div>
+    <%= submit_tag "Create Occasion" %>
+  </div>
+<% end %>

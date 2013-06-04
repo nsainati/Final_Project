@@ -1,0 +1,20 @@
+<h1>Editing Bottle and Occasion #<%= @bottles_event.id %></h1>
+
+
+<%= form_tag(be_url(@bottles_event), method: 'put') do %>
+
+ <div>
+    <%= label_tag :bottle_id %><br />
+    <%= select_tag :bottle_id,
+                    options_from_collection_for_select(Bottle.order('name asc'), :id, :name) %>
+  </div>
+  <div>
+    <%= label_tag :event_id %><br />
+    <%= select_tag :event_id,
+                    options_from_collection_for_select(Event.order('event asc'), :id, :event) %>
+  </div>
+
+  <div>
+    <%= submit_tag "Update Occasion" %>
+  </div>
+<% end %>
