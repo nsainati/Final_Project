@@ -1,7 +1,16 @@
 class BottlesController < ApplicationController
 
   def index
-    @bottles = Bottle.all
+    if params[:sort]==nil 
+      params[:sort]="name"
+    end
+    
+    if params[:direction]==nil
+      params[:direction]="asc"  
+    end
+      
+    @bottles = Bottle.order(params[:sort] + " " + params[:direction])
+
   end
 
   def show

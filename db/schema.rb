@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20130604180204) do
     t.string "event"
   end
 
-  create_table "occasions", :force => true do |t|
+  create_table "ocassion", :force => true do |t|
     t.integer "bottle_id"
     t.integer "event_id"
   end
