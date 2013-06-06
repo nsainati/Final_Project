@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :require_admin, only: [:edit, :destroy]
 
   def index
     @users = User.all

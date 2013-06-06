@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_filter :require_admin, only: [:create, :edit, :destroy]
 
   def index
     @events = Event.all
@@ -15,7 +16,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new
     @event.event = params[:event]
-    
+
     if @event.save
       redirect_to events_url
     else
@@ -30,7 +31,7 @@ class EventsController < ApplicationController
   def update
     @event = Event.find_by_id(params[:id])
     @event.event = params[:event]
-    
+
     if @event.save
       redirect_to events_url
     else

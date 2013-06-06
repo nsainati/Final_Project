@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130606200901) do
+ActiveRecord::Schema.define(:version => 20130606214911) do
 
   create_table "bootstraps", :force => true do |t|
     t.string   "cosmo"
@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(:version => 20130606200901) do
     t.float   "alcohol"
     t.integer "production"
     t.float   "price"
-    t.integer "picture_id"
     t.text    "description"
     t.integer "brand_id"
+    t.string  "picture_source"
   end
 
   create_table "bottles_events", :force => true do |t|

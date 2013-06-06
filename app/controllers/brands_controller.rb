@@ -1,4 +1,5 @@
 class BrandsController < ApplicationController
+  before_filter :require_admin, only: [:create, :edit, :destroy]
 
   def index
     @brands = Brand.all
@@ -16,7 +17,7 @@ class BrandsController < ApplicationController
     @brand = Brand.new
     @brand.name = params[:name]
     @brand.location = params[:location]
-    
+
     if @brand.save
       redirect_to brands_url
     else
@@ -32,7 +33,7 @@ class BrandsController < ApplicationController
     @brand = Brand.find_by_id(params[:id])
     @brand.name = params[:name]
     @brand.location = params[:location]
-    
+
     if @brand.save
       redirect_to brands_url
     else

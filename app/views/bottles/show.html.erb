@@ -1,67 +1,79 @@
 
-<h1>Bottle #<%= @bottle.id %></h1>
+<h1><%= @bottle.name %></h1>
 
-<table>
-     <tr>
-      <td><%= link_to 'Edit this bottle', edit_bottle_url(@bottle), class: 'btn' %></td>
-      <td><%= link_to 'Add occasions', new_occasion_url(@occasion), class: 'btn' %></td>
-      <td><%= link_to 'Add flavor assignments', new_flavorassignment_url(@flavorassignment), class: 'btn' %></td>
-      <td><%= link_to 'Add varietal assignments', new_varietalassignment_url(@varietalassignment), class: 'btn' %></td>
-    </tr>
+<% user = User.find_by_id(session["user_id"]) %>
+<% if session["user_id"].present? && user.user_type == "admin"%>
+      <table>
+           <tr>
+            <td><%= link_to 'Edit this bottle', edit_bottle_url(@bottle), class: 'btn' %></td>
+          </tr>
+      </table>
+<% end %>
+
+<table width=650px style = "padding=10px 10px 10px 10px;">
+<tr>
+<td width=300px>
+        <%= image_tag("#{@bottle.picture_source}") %>
+</td>
+<td>
+      <p>
+        <b>Name:</b>
+        <%= @bottle.name %>
+      </p>
+
+      <p>
+        <b>Brand:</b>
+        <%= @bottle.brand.name %>
+      </p>
+
+      <p>
+        <b>Year:</b>
+        <%= @bottle.year %>
+      </p>
+
+      <p>
+        <b>Color:</b>
+        <%= @bottle.color %>
+      </p>
+
+      <p>
+        <b>Appellation:</b>
+        <%= @bottle.appellation %>
+      </p>
+
+      <p>
+        <b>Style:</b>
+        <%= @bottle.style %>
+      </p>
+
+      <p>
+        <b>Alcohol:</b>
+        <%= @bottle.alcohol %>
+      </p>
+
+      <p>
+        <b>Production:</b>
+        <%= @bottle.production %>
+      </p>
+
+      <p>
+        <b>Price:</b>
+        <%= @bottle.price %>
+      </p>
+
+      <p>
+        <b>Description:</b>
+        <%= @bottle.description %>
+      </p>
+
+      <p>
+        <b>Occasions:</b>
+        <ul>
+          <% @bottle.occasions.each do |o| %>
+             <li><%=  o.event.event %></li>
+        <% end %>
+        </ul>
+      </p>
+</td>
+<tr>
 </table>
-
-<p>
-  <b>Name:</b>
-  <%= @bottle.name %>
-</p>
-
-<p>
-  <b>Brand:</b>
-  <%= @bottle.brand_id %>
-</p>
-
-<p>
-  <b>Year:</b>
-  <%= @bottle.year %>
-</p>
-
-<p>
-  <b>Color:</b>
-  <%= @bottle.color %>
-</p>
-
-<p>
-  <b>Appellation:</b>
-  <%= @bottle.appellation %>
-</p>
-
-<p>
-  <b>Style:</b>
-  <%= @bottle.style %>
-</p>
-
-<p>
-  <b>Alcohol:</b>
-  <%= @bottle.alcohol %>
-</p>
-
-<p>
-  <b>Production:</b>
-  <%= @bottle.production %>
-</p>
-
-<p>
-  <b>Price:</b>
-  <%= @bottle.price %>
-</p>
-
-<p>
-  <b>Picture_id:</b>
-  <%= @bottle.picture_id %>
-</p>
-
-
-<p>
-  <b>Description:</b>
-  <%= @bottle.description %>
-</p>

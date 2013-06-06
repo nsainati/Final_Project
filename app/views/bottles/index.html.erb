@@ -8,11 +8,16 @@
         <thead>
           <tr>
               <td><%= link_to 'Add a New Bottle', new_bottle_url, class: 'btn' %></td>
-              <td><%= link_to 'Add a New Brand', new_brand_url, class: 'btn' %></td>
               <td><%= link_to 'Add a New Occasion', new_event_url, class: 'btn' %></td>
               <td><%= link_to 'Add a New Flavor', new_flavor_url, class: 'btn' %></td>
               <td><%= link_to 'Add a New Varietal', new_varietal_url, class: 'btn' %></td>
-          </tr>
+            </tr>
+            <tr>
+              <td><%= link_to 'Add a New Brand', new_brand_url, class: 'btn' %></td>
+              <td><%= link_to 'Assign an Occasion', new_occasion_url, class: 'btn' %></td>
+              <td><%= link_to 'Add Flavor Assignments', new_flavorassignment_url(@flavorassignment), class: 'btn' %></td>
+              <td><%= link_to 'Add Varietal Assignments', new_varietalassignment_url(@varietalassignment), class: 'btn' %></td>
+         </tr>
         </thead>
       </table>
 <%else%>
@@ -25,7 +30,7 @@
       <th><%= sortable "name" %></th>
       <th><%= sortable "year" %></th>
       <th><%= sortable "color", "Color of Wine" %></th>
-      <th></th>
+      <th>Actions</th>
       <th></th>
       <th></th>
     </tr>

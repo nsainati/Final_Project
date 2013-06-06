@@ -1,4 +1,5 @@
 class FlavorsController < ApplicationController
+  before_filter :require_admin, only: [:create, :edit, :destroy]
 
   def index
     @flavors = Flavor.all

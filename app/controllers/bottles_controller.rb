@@ -1,5 +1,7 @@
 class BottlesController < ApplicationController
 
+  before_filter :require_admin, only: [:create, :edit, :destroy]
+
   def index
     if params[:sort]==nil
       params[:sort]="name"
@@ -19,12 +21,7 @@ class BottlesController < ApplicationController
 
   def new
     user = User.find_by_id(session["user_id"])
-
-    if session["user_id"].present? && user.user_type == "admin"
       @bottle = Bottle.new
-    else
-      redirect_to bottles_url, notice: "Sorry, you do not have permission."
-    end
   end
 
   def create
@@ -50,13 +47,7 @@ class BottlesController < ApplicationController
   end
 
   def edit
-    user = User.find_by_id(session["user_id"])
-
-    if session["user_id"].present? && user.user_type == "admin"
       @bottle = Bottle.find_by_id(params[:id])
-    else
-      redirect_to bottles_url, notice: "Sorry, you do not have permission."
-    end
   end
 
   def update
@@ -82,15 +73,9 @@ class BottlesController < ApplicationController
   end
 
   def destroy
-    user = User.find_by_id(session["user_id"])
-
-    if session["user_id"].present? && user.user_type == "admin"
         @bottle = Bottle.find_by_id(params[:id])
         @bottle.destroy
         redirect_to bottles_url
-    else
-        redirect_to bottles_url, notice: "Sorry, you do not have permission."
-    end
   end
 end
 

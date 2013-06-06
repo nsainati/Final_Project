@@ -1,4 +1,5 @@
 class VarietalsController < ApplicationController
+  before_filter :require_admin, only: [:create, :edit, :destroy]
 
   def index
     @varietals = Varietal.all
@@ -15,7 +16,7 @@ class VarietalsController < ApplicationController
   def create
     @varietal = Varietal.new
     @varietal.name = params[:name]
-    
+
     if @varietal.save
       redirect_to varietals_url
     else
@@ -30,7 +31,7 @@ class VarietalsController < ApplicationController
   def update
     @varietal = Varietal.find_by_id(params[:id])
     @varietal.name = params[:name]
-    
+
     if @varietal.save
       redirect_to varietals_url
     else

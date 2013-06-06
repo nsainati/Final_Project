@@ -1,4 +1,5 @@
 class FlavorassignmentsController < ApplicationController
+  before_filter :require_admin, only: [:create, :edit, :destroy]
 
   def index
     @flavorassignments = Flavorassignment.all
@@ -16,7 +17,7 @@ class FlavorassignmentsController < ApplicationController
     @flavorassignment = Flavorassignment.new
     @flavorassignment.bottle_id = params[:bottle_id]
     @flavorassignment.flavor_id = params[:flavor_id]
-    
+
     if @flavorassignment.save
       redirect_to flavorassignments_url
     else
@@ -32,7 +33,7 @@ class FlavorassignmentsController < ApplicationController
     @flavorassignment = Flavorassignment.find_by_id(params[:id])
     @flavorassignment.bottle_id = params[:bottle_id]
     @flavorassignment.flavor_id = params[:flavor_id]
-    
+
     if @flavorassignment.save
       redirect_to flavorassignments_url
     else

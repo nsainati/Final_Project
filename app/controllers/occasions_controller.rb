@@ -1,4 +1,5 @@
 class OccasionsController < ApplicationController
+  before_filter :require_admin, only: [:create, :edit, :destroy]
 
   def index
     @occasions = Occasion.all
