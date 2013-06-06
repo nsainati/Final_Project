@@ -1,0 +1,30 @@
+<h1>Flavor Assignments</h1>
+
+<p><%= link_to 'Add a New Flavor Assignment', new_flavorassignment_url %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bottle</th>
+      <th>Flavor</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @flavorassignments.each do |flavorassignment| %>
+    <tr>
+      <td><%= flavorassignment.bottle.name %></td>
+      <td><%= flavorassignment.flavor.name %></td>
+
+      <td><%= link_to 'Show', flavorassignment_url(flavorassignment) %></td>
+      <td><%= link_to 'Edit', edit_flavorassignment_url(flavorassignment) %></td>
+      <td><%= link_to 'Destroy', flavorassignment_url(flavorassignment), method: 'delete', data: { confirm: "Do you really want to delete this flavorassignment?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

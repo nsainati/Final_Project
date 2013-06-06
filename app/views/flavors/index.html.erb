@@ -1,0 +1,28 @@
+<h1>Flavors</h1>
+
+<p><%= link_to 'Add a New Flavor', new_flavor_url %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @flavors.each do |flavor| %>
+    <tr>
+      <td><%= flavor.name %></td>
+  
+      <td><%= link_to 'Show', flavor_url(flavor) %></td>
+      <td><%= link_to 'Edit', edit_flavor_url(flavor) %></td>
+      <td><%= link_to 'Destroy', flavor_url(flavor), method: 'delete', data: { confirm: "Do you really want to delete this flavor?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

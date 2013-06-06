@@ -1,0 +1,16 @@
+<h1>Editing Flavor #<%= @flavor.id %></h1>
+
+
+<%= form_tag(flavor_url(@flavor), method: 'put') do %>
+
+  <div>
+    <%= label_tag :name %><br />
+    <%= text_field_tag :name, @flavor.name %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Flavor" %>
+  </div>
+
+<% end %>

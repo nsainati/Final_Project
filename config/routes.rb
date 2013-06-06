@@ -1,5 +1,7 @@
 Wineapp::Application.routes.draw do
 
+
+
 root :to => 'bottles#index'
 
 #Session routes
@@ -76,7 +78,39 @@ root :to => 'bottles#index'
   delete '/occasions/:id', controller: 'occasions', action: 'destroy'
   #------------------------------
 
+  # Routes for the Flavorassignment resource:
+  # CREATE
+  get '/flavorassignments/new', controller: 'flavorassignments', action: 'new', as: 'new_flavorassignment'
+  post '/flavorassignments', controller: 'flavorassignments', action: 'create'
 
+  # READ
+  get '/flavorassignments', controller: 'flavorassignments', action: 'index', as: 'flavorassignments'
+  get '/flavorassignments/:id', controller: 'flavorassignments', action: 'show', as: 'flavorassignment'
+
+  # UPDATE
+  get '/flavorassignments/:id/edit', controller: 'flavorassignments', action: 'edit', as: 'edit_flavorassignment'
+  put '/flavorassignments/:id', controller: 'flavorassignments', action: 'update'
+
+  # DELETE
+  delete '/flavorassignments/:id', controller: 'flavorassignments', action: 'destroy'
+  #------------------------------
+
+  # Routes for the Flavor resource:
+  # CREATE
+  get '/flavors/new', controller: 'flavors', action: 'new', as: 'new_flavor'
+  post '/flavors', controller: 'flavors', action: 'create'
+
+  # READ
+  get '/flavors', controller: 'flavors', action: 'index', as: 'flavors'
+  get '/flavors/:id', controller: 'flavors', action: 'show', as: 'flavor'
+
+  # UPDATE
+  get '/flavors/:id/edit', controller: 'flavors', action: 'edit', as: 'edit_flavor'
+  put '/flavors/:id', controller: 'flavors', action: 'update'
+
+  # DELETE
+  delete '/flavors/:id', controller: 'flavors', action: 'destroy'
+  #------------------------------
 
   resources :bootstraps
 

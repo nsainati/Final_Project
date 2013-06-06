@@ -1,0 +1,23 @@
+<h1>New Flavor Assignment</h1>
+
+
+<%= form_tag(flavorassignments_url, method: 'post') do %>
+
+
+  <div>
+    <%= label_tag :bottle_id %><br />
+   <%= select_tag :bottle_id,
+                    options_from_collection_for_select(Bottle.order('name asc'), :id, :name) %>
+   </div>
+
+  <div>
+    <%= label_tag :flavor_id %><br />
+    <%= select_tag :flavor_id,
+                    options_from_collection_for_select(Flavor.order('name asc'), :id, :name) %>
+  </div>
+
+
+  <div>
+    <%= submit_tag "Create Flavor Assignment" %>
+  </div>
+<% end %>

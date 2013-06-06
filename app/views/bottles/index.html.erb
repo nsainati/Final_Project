@@ -2,6 +2,7 @@
 
 <p><%= link_to 'Add a New Bottle', new_bottle_url, class: 'btn' %></p>
 <p><%= link_to 'Add a New Occasion', new_event_url, class: 'btn' %></p>
+<p><%= link_to 'Add a New Flavor', new_flavor_url, class: 'btn' %></p>
 <p><%= link_to 'Add a New User', new_user_url, class: 'btn' %></p>
 
 <table class="table table-hover">
@@ -22,7 +23,7 @@
         <td><%= bottle.name %></td>
         <td><%= bottle.year %></td>
         <td><%= bottle.color %></td>
-  
+
       <td><%= link_to 'Show', bottle_url(bottle), class: 'btn' %></td>
       <td><%= link_to 'Edit', edit_bottle_url(bottle), class: 'btn' %></td>
       <td><%= link_to 'Destroy', bottle_url(bottle), method: 'delete', data: { confirm: "Do you really want to delete this bottle?" }, class: 'btn btn-danger' %></td>
