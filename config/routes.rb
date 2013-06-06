@@ -2,6 +2,57 @@ Wineapp::Application.routes.draw do
 
 
 
+  # Routes for the Brand resource:
+  # CREATE
+  get '/brands/new', controller: 'brands', action: 'new', as: 'new_brand'
+  post '/brands', controller: 'brands', action: 'create'
+
+  # READ
+  get '/brands', controller: 'brands', action: 'index', as: 'brands'
+  get '/brands/:id', controller: 'brands', action: 'show', as: 'brand'
+
+  # UPDATE
+  get '/brands/:id/edit', controller: 'brands', action: 'edit', as: 'edit_brand'
+  put '/brands/:id', controller: 'brands', action: 'update'
+
+  # DELETE
+  delete '/brands/:id', controller: 'brands', action: 'destroy'
+  #------------------------------
+
+  # Routes for the Varietalassignment resource:
+  # CREATE
+  get '/varietalassignments/new', controller: 'varietalassignments', action: 'new', as: 'new_varietalassignment'
+  post '/varietalassignments', controller: 'varietalassignments', action: 'create'
+
+  # READ
+  get '/varietalassignments', controller: 'varietalassignments', action: 'index', as: 'varietalassignments'
+  get '/varietalassignments/:id', controller: 'varietalassignments', action: 'show', as: 'varietalassignment'
+
+  # UPDATE
+  get '/varietalassignments/:id/edit', controller: 'varietalassignments', action: 'edit', as: 'edit_varietalassignment'
+  put '/varietalassignments/:id', controller: 'varietalassignments', action: 'update'
+
+  # DELETE
+  delete '/varietalassignments/:id', controller: 'varietalassignments', action: 'destroy'
+  #------------------------------
+
+  # Routes for the Varietal resource:
+  # CREATE
+  get '/varietals/new', controller: 'varietals', action: 'new', as: 'new_varietal'
+  post '/varietals', controller: 'varietals', action: 'create'
+
+  # READ
+  get '/varietals', controller: 'varietals', action: 'index', as: 'varietals'
+  get '/varietals/:id', controller: 'varietals', action: 'show', as: 'varietal'
+
+  # UPDATE
+  get '/varietals/:id/edit', controller: 'varietals', action: 'edit', as: 'edit_varietal'
+  put '/varietals/:id', controller: 'varietals', action: 'update'
+
+  # DELETE
+  delete '/varietals/:id', controller: 'varietals', action: 'destroy'
+  #------------------------------
+
 root :to => 'bottles#index'
 
 #Session routes

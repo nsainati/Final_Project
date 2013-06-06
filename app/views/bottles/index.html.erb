@@ -1,9 +1,23 @@
 <h1>Bottles</h1>
 
-<p><%= link_to 'Add a New Bottle', new_bottle_url, class: 'btn' %></p>
-<p><%= link_to 'Add a New Occasion', new_event_url, class: 'btn' %></p>
-<p><%= link_to 'Add a New Flavor', new_flavor_url, class: 'btn' %></p>
-<p><%= link_to 'Add a New User', new_user_url, class: 'btn' %></p>
+
+<% user = User.find_by_id(session["user_id"]) %>
+
+<% if session["user_id"].present? && user.user_type == "admin"%>
+       <table>
+        <thead>
+          <tr>
+              <td><%= link_to 'Add a New Bottle', new_bottle_url, class: 'btn' %></td>
+              <td><%= link_to 'Add a New Brand', new_brand_url, class: 'btn' %></td>
+              <td><%= link_to 'Add a New Occasion', new_event_url, class: 'btn' %></td>
+              <td><%= link_to 'Add a New Flavor', new_flavor_url, class: 'btn' %></td>
+              <td><%= link_to 'Add a New Varietal', new_varietal_url, class: 'btn' %></td>
+          </tr>
+        </thead>
+      </table>
+<%else%>
+        <br>
+<%end%>
 
 <table class="table table-hover">
   <thead>
@@ -25,8 +39,16 @@
         <td><%= bottle.color %></td>
 
       <td><%= link_to 'Show', bottle_url(bottle), class: 'btn' %></td>
-      <td><%= link_to 'Edit', edit_bottle_url(bottle), class: 'btn' %></td>
-      <td><%= link_to 'Destroy', bottle_url(bottle), method: 'delete', data: { confirm: "Do you really want to delete this bottle?" }, class: 'btn btn-danger' %></td>
+
+   <% user = User.find_by_id(session["user_id"]) %>
+
+    <% if session["user_id"].present? && user.user_type == "admin"%>
+          <td><%= link_to 'Edit', edit_bottle_url(bottle), class: 'btn' %></td>
+          <td><%= link_to 'Destroy', bottle_url(bottle), method: 'delete', data: { confirm: "Do you really want to delete this bottle?" }, class: 'btn btn-danger' %></td>
+  <% else %>
+          <td></td>
+          <td></td>
+  <% end %>
 
     </tr>
   <% end %>

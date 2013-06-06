@@ -1,0 +1,28 @@
+<h1>Varietals</h1>
+
+<p><%= link_to 'Add a New Varietal', new_varietal_url %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @varietals.each do |varietal| %>
+    <tr>
+      <td><%= varietal.name %></td>
+  
+      <td><%= link_to 'Show', varietal_url(varietal) %></td>
+      <td><%= link_to 'Edit', edit_varietal_url(varietal) %></td>
+      <td><%= link_to 'Destroy', varietal_url(varietal), method: 'delete', data: { confirm: "Do you really want to delete this varietal?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

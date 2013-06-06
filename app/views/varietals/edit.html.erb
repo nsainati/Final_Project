@@ -1,0 +1,16 @@
+<h1>Editing Varietal #<%= @varietal.id %></h1>
+
+
+<%= form_tag(varietal_url(@varietal), method: 'put') do %>
+
+  <div>
+    <%= label_tag :name %><br />
+    <%= text_field_tag :name, @varietal.name %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Varietal" %>
+  </div>
+
+<% end %>

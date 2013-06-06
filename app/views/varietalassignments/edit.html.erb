@@ -1,0 +1,23 @@
+<h1>Editing Varietal Assignment #<%= @varietalassignment.id %></h1>
+
+
+<%= form_tag(varietalassignment_url(@varietalassignment), method: 'put') do %>
+
+  <div>
+    <%= label_tag :bottle_id %><br />
+   <%= select_tag :bottle_id,
+                    options_from_collection_for_select(Bottle.order('name asc'), :id, :name) %>
+   </div>
+
+  <div>
+    <%= label_tag :varietal_id %><br />
+    <%= select_tag :varietal_id,
+                    options_from_collection_for_select(Varietal.order('name asc'), :id, :name) %>
+  </div>
+
+
+  <div>
+    <%= submit_tag "Update Varietal Assignment" %>
+  </div>
+
+<% end %>

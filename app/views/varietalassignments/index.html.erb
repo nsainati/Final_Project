@@ -1,0 +1,30 @@
+<h1>Varietal Assignments</h1>
+
+<p><%= link_to 'Add a New Varietal Assignment', new_varietalassignment_url %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bottle</th>
+      <th>Varietal</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @varietalassignments.each do |varietalassignment| %>
+    <tr>
+      <td><%= varietalassignment.bottle.name %></td>
+      <td><%= varietalassignment.varietal.name %></td>
+
+      <td><%= link_to 'Show', varietalassignment_url(varietalassignment) %></td>
+      <td><%= link_to 'Edit', edit_varietalassignment_url(varietalassignment) %></td>
+      <td><%= link_to 'Destroy', varietalassignment_url(varietalassignment), method: 'delete', data: { confirm: "Do you really want to delete this varietal assignment?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

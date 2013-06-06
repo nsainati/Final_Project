@@ -1,14 +1,14 @@
 class BottlesController < ApplicationController
 
   def index
-    if params[:sort]==nil 
+    if params[:sort]==nil
       params[:sort]="name"
     end
-    
+
     if params[:direction]==nil
-      params[:direction]="asc"  
+      params[:direction]="asc"
     end
-      
+
     @bottles = Bottle.order(params[:sort] + " " + params[:direction])
 
   end
@@ -20,27 +20,25 @@ class BottlesController < ApplicationController
   def new
     user = User.find_by_id(session["user_id"])
 
-    if session["user_id"].present? && user.user_type == "admin" 
+    if session["user_id"].present? && user.user_type == "admin"
       @bottle = Bottle.new
     else
       redirect_to bottles_url, notice: "Sorry, you do not have permission."
     end
-  end 
+  end
 
   def create
         @bottle = Bottle.new
         @bottle.name = params[:name]
+        @bottle.brand_id = params[:brand_id]
         @bottle.year = params[:year]
         @bottle.color = params[:color]
-        @bottle.varietal = params[:varietal]
         @bottle.appellation = params[:appellation]
         @bottle.style = params[:style]
-        @bottle.flavors = params[:flavors]
         @bottle.alcohol = params[:alcohol]
         @bottle.production = params[:production]
         @bottle.price = params[:price]
         @bottle.picture_id = params[:picture_id]
-        @bottle.occasion = params[:occasion]
         @bottle.description = params[:description]
         @bottle.save
 
@@ -52,26 +50,30 @@ class BottlesController < ApplicationController
   end
 
   def edit
-    @bottle = Bottle.find_by_id(params[:id])
+    user = User.find_by_id(session["user_id"])
+
+    if session["user_id"].present? && user.user_type == "admin"
+      @bottle = Bottle.find_by_id(params[:id])
+    else
+      redirect_to bottles_url, notice: "Sorry, you do not have permission."
+    end
   end
 
   def update
     @bottle = Bottle.find_by_id(params[:id])
     @bottle.name = params[:name]
+    @bottle.brand_id = params[:brand_id]
     @bottle.year = params[:year]
     @bottle.color = params[:color]
-    @bottle.varietal = params[:varietal]
     @bottle.appellation = params[:appellation]
     @bottle.style = params[:style]
-    @bottle.flavors = params[:flavors]
     @bottle.alcohol = params[:alcohol]
     @bottle.production = params[:production]
     @bottle.price = params[:price]
     @bottle.picture_id = params[:picture_id]
-    @bottle.occasion = params[:occasion]
     @bottle.description = params[:description]
     @bottle.save
-    
+
     if @bottle.save
       redirect_to bottles_url
     else
@@ -80,9 +82,15 @@ class BottlesController < ApplicationController
   end
 
   def destroy
-    @bottle = Bottle.find_by_id(params[:id])
-    @bottle.destroy
-    redirect_to bottles_url
+    user = User.find_by_id(session["user_id"])
+
+    if session["user_id"].present? && user.user_type == "admin"
+        @bottle = Bottle.find_by_id(params[:id])
+        @bottle.destroy
+        redirect_to bottles_url
+    else
+        redirect_to bottles_url, notice: "Sorry, you do not have permission."
+    end
   end
 end
 

@@ -4,7 +4,13 @@
 
   <div>
     <%= label_tag :name %><br />
-    <%= text_field_tag :name, @bottle.name, size: 40, placeholder: "Enter brand name here..."%>
+    <%= text_field_tag :name, @bottle.name, size: 40, placeholder: "Enter bottle name here..."%>
+  </div>
+
+ <div>
+    <%= label_tag :brand_id %><br />
+    <%= select_tag :brand_id,
+                    options_from_collection_for_select(Brand.order('name asc'), :id, :name) %>
   </div>
 
   <div>
@@ -17,24 +23,14 @@
     <%= text_field_tag :color, @bottle.color, size: 40, placeholder: "Red, white, rose?"%>
   </div>
 
-  <div>
-    <%= label_tag :varietal %><br />
-    <%= text_field_tag :varietal, @bottle.varietal, size: 40, placeholder: "Pinot noir, Merlot, etc."%>
-  </div>
-
 <div>
     <%= label_tag :appellation %><br />
     <%= text_field_tag :appellation, @bottle.appellation, size: 40, placeholder: "Where's it from?"%>
   </div>
-  
+
   <div>
     <%= label_tag :style %><br />
     <%= text_field_tag :style, @bottle.style, size: 40, placeholder: "What's it like?"%>
-  </div>
-
-  <div>
-    <%= label_tag :flavors %><br />
-    <%= text_field_tag :flavors, @bottle.flavors, size: 40, placeholder: "Cherry, fig, pepper?"%>
   </div>
 
   <div>
@@ -58,16 +54,11 @@
   </div>
 
   <div>
-    <%= label_tag :occasion %><br />
-    <%= text_field_tag :occasion, @bottle.occasion, size: 40, placeholder: "This wine is perfect for..."%>
-  </div>
-
-  <div>
     <%= label_tag :description %><br />
     <%= text_field_tag :description, @bottle.description, size: 100, placeholder: "What do you think of this wine?"%>
   </div>
 
-  
+
   <div>
     <%= submit_tag "Update Bottle", class: 'btn' %>
   </div>

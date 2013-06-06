@@ -1,0 +1,30 @@
+<h1>Brands</h1>
+
+<p><%= link_to 'Add a New Brand', new_brand_url %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Location</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @brands.each do |brand| %>
+    <tr>
+      <td><%= brand.name %></td>
+      <td><%= brand.location %></td>
+  
+      <td><%= link_to 'Show', brand_url(brand) %></td>
+      <td><%= link_to 'Edit', edit_brand_url(brand) %></td>
+      <td><%= link_to 'Destroy', brand_url(brand), method: 'delete', data: { confirm: "Do you really want to delete this brand?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

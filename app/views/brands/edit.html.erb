@@ -1,0 +1,21 @@
+<h1>Editing Brand #<%= @brand.id %></h1>
+
+
+<%= form_tag(brand_url(@brand), method: 'put') do %>
+
+  <div>
+    <%= label_tag :name %><br />
+    <%= text_field_tag :name, @brand.name %>
+  </div>
+
+  <div>
+    <%= label_tag :location %><br />
+    <%= text_field_tag :location, @brand.location %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Brand" %>
+  </div>
+
+<% end %>

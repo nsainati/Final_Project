@@ -6,12 +6,18 @@
       <td><%= link_to 'Edit this bottle', edit_bottle_url(@bottle), class: 'btn' %></td>
       <td><%= link_to 'Add occasions', new_occasion_url(@occasion), class: 'btn' %></td>
       <td><%= link_to 'Add flavor assignments', new_flavorassignment_url(@flavorassignment), class: 'btn' %></td>
+      <td><%= link_to 'Add varietal assignments', new_varietalassignment_url(@varietalassignment), class: 'btn' %></td>
     </tr>
 </table>
 
 <p>
   <b>Name:</b>
   <%= @bottle.name %>
+</p>
+
+<p>
+  <b>Brand:</b>
+  <%= @bottle.brand_id %>
 </p>
 
 <p>
@@ -25,11 +31,6 @@
 </p>
 
 <p>
-  <b>Varietal:</b>
-  <%= @bottle.varietal %>
-</p>
-
-<p>
   <b>Appellation:</b>
   <%= @bottle.appellation %>
 </p>
@@ -37,11 +38,6 @@
 <p>
   <b>Style:</b>
   <%= @bottle.style %>
-</p>
-
-<p>
-  <b>Flavors:</b>
-  <%= @bottle.flavors %>
 </p>
 
 <p>
@@ -64,10 +60,6 @@
   <%= @bottle.picture_id %>
 </p>
 
-<p>
-  <b>Occasion:</b>
-  <%= @bottle.occasion %>
-</p>
 
 <p>
   <b>Description:</b>

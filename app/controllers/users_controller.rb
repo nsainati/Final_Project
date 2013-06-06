@@ -23,7 +23,8 @@ class UsersController < ApplicationController
       @user.user_type = 'member'
     end
     if @user.save
-      redirect_to users_url
+      session["user_id"] = @user.id
+      redirect_to bottles_url
     else
       render 'new'
     end
@@ -43,8 +44,8 @@ class UsersController < ApplicationController
     else
       @user.user_type = 'member'
     end
-    
-    
+
+
     if @user.save
       redirect_to users_url
     else
