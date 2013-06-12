@@ -9,9 +9,42 @@
 
 Bottle.destroy_all
 Brand.destroy_all
+Flavor.destroy_all
+Occasion.destroy_all
+Varietal.destroy_all
+Flavorassignment.destroy_all
+Event.destroy_all
+Varietalassignment.destroy_all
 
+#Flavor
+flavorseed = [{name: "Oak"}, {name: "Fig"}, {name: "Chocolate"}]
+flavorseed.each do |flav|
+  f = Flavor.new
+  f.name = flav[:name]
+  f.save
+end
+puts "There are now #{Flavor.count} flavors in the database"
+
+#Event
+eventseed = [{event: "BBQ"}, {event: "Wedding"}, {event: "Casual"}]
+eventseed.each do |occ|
+  e = Event.new
+  e.event = occ[:event]
+  e.save
+end
+puts "There are now #{Event.count} events in the database"
+
+#Varietal
+varietalseed = [{name: "Merlot"}, {name: "Malbec"}, {name: "Pinot Grigio"}]
+varietalseed.each do |var|
+  v = Varietal.new
+  v.name = var[:name]
+  v.save
+end
+puts "There are now #{Varietal.count} varietals in the database"
+
+#Brand
 brandseed = [{name: 'Sainati Wine'}, {name: 'Napa Valley Wines'}, {name: 'Cupcake'}]
-
 brandseed.each do |brand_info|
   m = Brand.new
   m.name = brand_info[:name]
@@ -19,8 +52,8 @@ brandseed.each do |brand_info|
 end
 puts "There are now #{Brand.count} brands in the database"
 
+#Bottle
 b = Brand.find_by_name('Sainati Wine')
-
 data = [{name: "Awesome Wine", brand_id: b.id, year: 1982, color: "Red",
 		appellation: "Napa Valley", style: "Meritage",
 		alcohol: 14.2, production: 15000,
@@ -59,3 +92,12 @@ data.each do |wine_info|
 end
 
 puts "There are now #{Bottle.count} wines in the database"
+
+#Flavor Assignments
+bott = Bottle.find_by_name('Awesome Wine')
+flav = Flavor.find_by_name('Oak')
+faseed = Flavorassignment.new
+faseed.bottle_id = bott.id
+faseed.flavor_id = flav.id
+faseed.save
+puts "There are now #{Flavorassignment.count} flavor-bottle pairs in the database"

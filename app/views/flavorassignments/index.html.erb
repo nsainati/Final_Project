@@ -14,10 +14,10 @@
   </thead>
 
   <tbody>
-  <% @flavorassignments.each do |flavorassignment| %>
+  <% @flavorassignments.each do |fa| %>
     <tr>
-      <td><%= flavorassignment.bottle.name %></td>
-      <td><%= flavorassignment.flavor.name %></td>
+      <td><%= fa.bottle.name %></td>
+      <td><%= fa.flavor.name %></td>
 
       <td><%= link_to 'Show', flavorassignment_url(flavorassignment) %></td>
       <td><%= link_to 'Edit', edit_flavorassignment_url(flavorassignment) %></td>
