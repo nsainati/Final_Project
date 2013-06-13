@@ -18,16 +18,16 @@ class UsersController < ApplicationController
     @user.name = params[:name]
     @user.password = params[:password]
     @user.email = params[:email]
-    if @user.email == 'nsainati2013@kellogg.northwestern.edu'  || @user.email == 'agarfinkel2013@kellogg.northwestern.edu'
+    if @user.email == 'nsainati2013@kellogg.northwestern.edu'  || @user.email == 'agarfinkel2013@kellogg.northwestern.edu' || @user.email == 'j-cohen@kellogg.northwestern.edu'
       @user.user_type = 'admin'
     else
       @user.user_type = 'member'
     end
     if @user.save
       session["user_id"] = @user.id
-      redirect_to bottles_url
+      redirect_to bottles_url, notice: "Welcome, #{@user.name}"
     else
-      render 'new'
+      render 'new', notice: "Sorry, you do not have permission to be an administrator."
     end
   end
 

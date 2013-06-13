@@ -1,3 +1,4 @@
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -6,7 +7,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
+User.destroy_all
 Bottle.destroy_all
 Brand.destroy_all
 Flavor.destroy_all
@@ -57,23 +58,23 @@ b = Brand.find_by_name('Sainati Wine')
 data = [{name: "Awesome Wine", brand_id: b.id, year: 1982, color: "Red",
 		appellation: "Napa Valley", style: "Meritage",
 		alcohol: 14.2, production: 15000,
-		price: 15.00, picture_source: "farm.jpg", description: "This is one of our favorite wines."},
+		price: 15.00, picture_source: "Bottle1.jpg", description: "This is one of our favorite wines."},
         {name: "Cool Wine", brand_id: b.id, year: 1998, color: "Red",
     appellation: "Sonoma Valley", style: "Meritage",
     alcohol: 14.5, production: 15000,
-    price: 18.00, description: "A very good wine, indeed."},
+    price: 18.00, picture_source: "bottle3.jpg", description: "A very good wine, indeed."},
         {name: "Neat Wine", brand_id: b.id, year: 2009, color: "White",
     appellation: "California", style: "Crisp",
     alcohol: 12.2, production: 25000,
-    price: 17.00,  description: "Good for summer"},
+    price: 17.00, picture_source: "Chardonnay.jpg", description: "Good for summer"},
         {name: "Great Wine", brand_id: b.id, year: 2009, color: "White",
     appellation: "Napa", style: "Sweet",
     alcohol: 12.2, production: 25000,
-    price: 12.00, description: "Good for the beach"},
-        {name: "Best Wine", brand_id: b.id, year: 2009, color: "Red",
+    price: 12.00, picture_source: "bottle4.jpg", description: "Good for the beach"},
+        {name: "Roca", brand_id: b.id, year: 2009, color: "Red",
     appellation: "Napa", style: "Big",
     alcohol: 15.2, production: 25000,
-    price: 30.00, description: "Steak night wine"}]
+    price: 30.00, picture_source: "Roca.JPG", description: "Steak night wine"}]
 
 data.each do |wine_info|
   m = Bottle.new
@@ -101,3 +102,21 @@ faseed.bottle_id = bott.id
 faseed.flavor_id = flav.id
 faseed.save
 puts "There are now #{Flavorassignment.count} flavor-bottle pairs in the database"
+
+
+#Occasion Assignments
+occ = Event.find_by_event('BBQ')
+occseed=Occasion.new
+occseed.bottle_id=bott.id
+occseed.event_id = occ.id
+occseed.save
+puts "There are now #{Occasion.count} event-bottle pairs in the database"
+
+
+#Varietal Assignments
+var = Varietal.find_by_name('Merlot')
+varseed=Varietalassignment.new
+varseed.bottle_id=bott.id
+varseed.varietal_id = var.id
+varseed.save
+puts "There are now #{Varietalassignment.count} varietal-bottle pairs in the database"

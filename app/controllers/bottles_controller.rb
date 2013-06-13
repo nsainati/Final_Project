@@ -35,7 +35,7 @@ class BottlesController < ApplicationController
         @bottle.alcohol = params[:alcohol]
         @bottle.production = params[:production]
         @bottle.price = params[:price]
-        @bottle.picture_id = params[:picture_id]
+        @bottle.picture_source = params[:picture_source]
         @bottle.description = params[:description]
         @bottle.save
 
@@ -61,7 +61,7 @@ class BottlesController < ApplicationController
     @bottle.alcohol = params[:alcohol]
     @bottle.production = params[:production]
     @bottle.price = params[:price]
-    @bottle.picture_id = params[:picture_id]
+    @bottle.picture_source = params[:picture_source]
     @bottle.description = params[:description]
     @bottle.save
 

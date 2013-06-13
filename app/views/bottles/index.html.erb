@@ -4,22 +4,45 @@
 <% user = User.find_by_id(session["user_id"]) %>
 
 <% if session["user_id"].present? && user.user_type == "admin"%>
-       <table>
-        <thead>
-          <tr>
-              <td><%= link_to 'Add a New Bottle', new_bottle_url, class: 'btn' %></td>
-              <td><%= link_to 'Add a New Occasion', new_event_url, class: 'btn' %></td>
-              <td><%= link_to 'Add a New Flavor', new_flavor_url, class: 'btn' %></td>
-              <td><%= link_to 'Add a New Varietal', new_varietal_url, class: 'btn' %></td>
-            </tr>
-            <tr>
-              <td><%= link_to 'Add a New Brand', new_brand_url, class: 'btn' %></td>
-              <td><%= link_to 'Assign an Occasion', new_occasion_url, class: 'btn' %></td>
-              <td><%= link_to 'Add Flavor Assignments', new_flavorassignment_url(@flavorassignment), class: 'btn' %></td>
-              <td><%= link_to 'Add Varietal Assignments', new_varietalassignment_url(@varietalassignment), class: 'btn' %></td>
-         </tr>
-        </thead>
-      </table>
+
+    <div class = "navbar">
+      <div class = "navbar-inner">
+        <ul class ="nav">  
+
+          <li><%= link_to 'Add a New Bottle', new_bottle_url %></li> 
+          <li><%= link_to 'Add a New Brand', new_brand_url %></li> 
+
+          <li class="dropdown"> <a class="dropdown-toggle" data-toggle= "dropdown" href="#">Flavors<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to 'Add a New Flavor', new_flavor_url%> </li> 
+                <li> <%= link_to 'View Flavors', flavors_url%></li> 
+                <li> <%= link_to 'Add Flavor Assignments', new_flavorassignment_url%></li> 
+                <li> <%= link_to 'View Flavor Assignments', flavorassignments_url%></li> 
+              </ul>
+          </li> 
+
+          <li class="dropdown"> <a class="dropdown-toggle" data-toggle= "dropdown" href="#">Varietals<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to 'Add a New Varietal', new_varietal_url%> </li> 
+                <li> <%= link_to 'View Varietals', varietals_url%></li> 
+                <li> <%= link_to 'Add Varietal Assignments', new_varietalassignment_url%></li> 
+                <li> <%= link_to 'View Varietal Assignments', varietalassignments_url%></li> 
+              </ul>
+          </li> 
+
+          <li class="dropdown"> <a class="dropdown-toggle" data-toggle= "dropdown" href="#">Occasions<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to 'Add a New Occasion', new_event_url%> </li> 
+                <li> <%= link_to 'View Occasions', events_url%></li> 
+                <li> <%= link_to 'Add Occasion Assignments', new_occasion_url%></li> 
+                <li> <%= link_to 'View Occasion Assignments', occasions_url%></li> 
+              </ul>
+          </li> 
+
+        </ul>
+      </div>
+    </div>
+
 <%else%>
         <br>
 <%end%>

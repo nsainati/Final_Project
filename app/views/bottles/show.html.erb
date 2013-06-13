@@ -35,7 +35,16 @@
         <b>Color:</b>
         <%= @bottle.color %>
       </p>
-
+      
+      <p>
+        <b>Varietal:</b>
+        <ul>
+          <% @bottle.varietalassignments.each do |o| %>
+             <li><%=  o.varietal.name %></li>
+        <% end %>
+        </ul>
+      </p>
+      
       <p>
         <b>Appellation:</b>
         <%= @bottle.appellation %>
@@ -45,6 +54,21 @@
         <b>Style:</b>
         <%= @bottle.style %>
       </p>
+
+      <p>
+        <b>
+          <% if @bottle.flavorassignments.count > 1 %>
+          <%= "Flavor".pluralize + ":" %>
+          <% else %>
+          Flavor:
+          <%end%></b>
+        <ul>
+          <% @bottle.flavorassignments.each do |o| %>
+             <li><%=  o.flavor.name %></li>
+        <% end %>
+        </ul>
+      </p>  
+
 
       <p>
         <b>Alcohol:</b>
@@ -58,7 +82,7 @@
 
       <p>
         <b>Price:</b>
-        <%= @bottle.price %>
+        <%= number_to_currency(@bottle.price) %>
       </p>
 
       <p>
@@ -67,7 +91,11 @@
       </p>
 
       <p>
-        <b>Occasions:</b>
+        <b><% if @bottle.occasions.count > 1 %>
+          <%= "Occasion".pluralize + ":" %>
+          <% else %>
+          Occasion:
+          <%end%></b>
         <ul>
           <% @bottle.occasions.each do |o| %>
              <li><%=  o.event.event %></li>
